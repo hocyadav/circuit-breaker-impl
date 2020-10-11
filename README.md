@@ -79,6 +79,8 @@ docker run -p 9090:9090 my-prometheus
 now we can see http://localhost:8081/actuator/prometheus this data on http://localhost:9090/
 
 ----
+GRAFANA : https://grafana.com/docs/grafana/latest/installation/mac/
+
 ```curl
 #1. Install grafana using brew
 brew install grafana
