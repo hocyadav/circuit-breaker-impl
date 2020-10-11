@@ -75,3 +75,5 @@ start docker file
 docker build -t my-prometheus .
 docker run -p 9090:9090 my-prometheus
 ```
+
+now we can see http://localhost:8081/actuator/prometheus this data on http://localhost:9090/
