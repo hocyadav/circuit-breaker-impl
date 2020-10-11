@@ -89,3 +89,6 @@ brew services start grafana
 ```
 3. access UI console (default -> username : admin, password: admin)
 http://localhost:3000/ 
+
+go to http://localhost:3000/datasources and add input data source as prometheus
+
