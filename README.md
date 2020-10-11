@@ -77,3 +77,11 @@ docker run -p 9090:9090 my-prometheus
 ```
 
 now we can see http://localhost:8081/actuator/prometheus this data on http://localhost:9090/
+
+----
+```curl
+#1. Install grafana using brew
+brew install grafana
+#2. start grafana (default port 3000)
+brew services start grafana
+```
