@@ -1,3 +1,19 @@
+#---from official website - https://resilience4j.readme.io/docs/getting-started-3
+#management.health.circuitbreakers.enabled: true
+#management.health.ratelimiters.enabled: true
+#
+#resilience4j.circuitbreaker:
+#  configs:
+#    default:
+#      registerHealthIndicator: true
+#
+#
+#resilience4j.ratelimiter:
+#  configs:
+#    default:
+#      registerHealthIndicator: true
+
+
 management.endpoints.web.exposure.include: '*'
 management.endpoint.health.show-details: always
 
