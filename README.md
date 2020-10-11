@@ -27,7 +27,7 @@ prometheus setup
   - 2nd entry for spring boot app
 3. open localhost 9090 and see same metrics as spring boot localhost../actuator/metrics
 
-create prometheus yml file - locally and add to docker 
+create prometheus yml file - locally and add to docker https://www.youtube.com/watch?v=hOhHmnE9uXs&list=PLq3uEqRnr_2GlhVSqltfLtpO8GF4VIICY&index=5
 ```yml
 # my global config
 global:
