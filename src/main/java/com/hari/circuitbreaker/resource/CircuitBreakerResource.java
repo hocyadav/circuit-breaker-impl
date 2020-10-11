@@ -1,5 +1,6 @@
 package com.hari.circuitbreaker.resource;
 
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.boot.web.client.RootUriTemplateHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,24 +35,24 @@ public class CircuitBreakerResource {
 
     @CircuitBreaker(name = "service1", fallbackMethod = "getDataFromSampleServiceFallback")//wrap with CB
     @RequestMapping(method = RequestMethod.GET)
-    public String getDataFromSampleService() {
+    public String getDataFromSampleService(@DefaultValue("old value") String old) {
         System.err.println("CircuitBreakerResource.getDataFromSampleService");
         final String response = restTemplate.getForObject("/", String.class);
         System.out.println("response = " + response);
-        return response;
+        return response + old;
     }
 
-    public String getDataFromSampleServiceFallback(Throwable throwable) {
+    public String getDataFromSampleServiceFallback(String old, Throwable throwable) {
         System.err.println("CircuitBreakerResource.getDataFromSampleServiceFallback");
         System.out.println(throwable.getMessage().toString());
-        return "CircuitBreakerResource.getDataFromSampleServiceFallback";
+        return "CircuitBreakerResource.getDataFromSampleServiceFallback " + old;
     }
 
     @RequestMapping(method = RequestMethod.POST)//not wrap with CB
     public String postDataToSampleService() {
         System.err.println("CircuitBreakerResource.postDataToSampleService");
         final String response = restTemplate.postForObject("/", null, String.class);
-        System.out.println("response = " + response);
+        System.out.println("re sponse = " + response);
         return response;
     }
 
