@@ -92,3 +92,10 @@ http://localhost:3000/
 
 go to http://localhost:3000/datasources and add input data source as prometheus
 
+
+add new dashboard and add query from prometheus to grafana
+![image](https://user-images.githubusercontent.com/56931032/95680781-9cc74780-0bf9-11eb-8df3-6c1db2670c30.png)
+
+![image](https://user-images.githubusercontent.com/56931032/95680800-b8325280-0bf9-11eb-9bff-d3f331dd60e2.png)
+
+
