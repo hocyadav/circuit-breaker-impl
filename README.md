@@ -85,3 +85,5 @@ brew install grafana
 #2. start grafana (default port 3000)
 brew services start grafana
 ```
+3. access UI console (default -> username : admin, password: admin)
+http://localhost:3000/ 
