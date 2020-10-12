@@ -75,12 +75,15 @@ public class CircuitBreakerResource2 {
         final CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker("service3");
         //4. supplier obj
         final Supplier<String> tSupplier = CircuitBreaker.decorateSupplier(circuitBreaker, () -> restTemplate.getForObject("/", String.class));
-        //5. result obj using Try
-        final Try<String> recover = Try.ofSupplier(tSupplier).recover(t -> {
-            //.. operation when service call failed
-            System.out.println("t.getMessage().toString() = " + t.getMessage().toString());
-            return "failed";
-        });
+        //5. M1. result obj using Try - with fallback logic -working
+//        final Try<String> recover = Try.ofSupplier(tSupplier).recover(t -> {
+//            //.. operation when service call failed
+//            System.out.println("t.getMessage().toString() = " + t.getMessage().toString());
+//            return "failed";
+//        });
+
+        //M2 - without fallback logic - only decorate with circuit breaker - working
+        final Try<String> recover = Try.ofSupplier(tSupplier);
 
         //6. return result - success or failure
         System.out.println("result.isSuccess() = " + recover.isSuccess());
