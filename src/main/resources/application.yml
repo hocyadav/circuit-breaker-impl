@@ -36,3 +36,17 @@ resilience4j.circuitbreaker:
         - org.springframework.web.client.ResourceAccessException
       #exections that is NOT part of failed call
       ignoreExceptions:
+    service3:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 8
+      ringBufferSizeInHalfOpenState: 5
+      waitDurationInOpenState: 30s
+      failureRateThreshold: 50
+      #exections that is part of failed call
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.io.IOException
+        - java.util.concurrent.TimeoutException
+        - org.springframework.web.client.ResourceAccessException
+      #exections that is NOT part of failed call
+      ignoreExceptions:
