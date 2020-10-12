@@ -91,17 +91,11 @@ public class CircuitBreakerResource2 {
         return recover.get();
     }
 
-    public String getDataFromSampleServiceFallback(String old, Throwable throwable) {
-        System.err.println("CircuitBreakerResource.getDataFromSampleServiceFallback");
-        System.out.println(throwable.getMessage().toString());
-        return "CircuitBreakerResource.getDataFromSampleServiceFallback " + old;
-    }
-
     @RequestMapping(method = RequestMethod.POST)//not wrap with CB
     public String postDataToSampleService() {
         System.err.println("CircuitBreakerResource.postDataToSampleService");
         final String response = restTemplate.postForObject("/", null, String.class);
-        System.out.println("re sponse = " + response);
+        System.out.println("response = " + response);
         return response;
     }
 
